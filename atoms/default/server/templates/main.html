@@ -1,16 +1,79 @@
+<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> 
+
 <!-- thrasher content sits in this div -->
-<div class="class-name">
-    <h1 class="class-name__headline">
-        Here is a headline
-    </h1>
-    <a href="https://guardian.ctdonate.org/?INTCMP=gdnwb_mawns_banner_edtrl_Marketing_CharityAppeal_1119_" title="" class="class-name__component-button" data-link-name="">
-        <span>A button</span>
-        <svg class="class-name__icon" width="24" height="22" viewBox="0 0 24 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 12.0046H19.6395L11.9377 21.0205L12.939 22L23.6444 11.5023V10.4977L12.939 0L11.9377 0.979452L19.6395 9.99543H0V12.0046Z"></path>
+<div class="coronavirus">
+
+    <div class="stack-left">
+        <h2>Coronavirus<h2>
+    </div>
+
+
+    <div class="stack-right">
+        <h3>Have you washed your hands recently?</h3>
+        <h4>Make sure you wash them for at least 20 seconds.</h4>
+    </div>
+
+      <!-- arrow -->
+      <svg class="arrow" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="16" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 17.1923H22.5718L16.0677 24.8552L16.915 25.69L25.936 16.7686V15.9214L16.915 7L16.0677 7.83482L22.5469 15.4977H6" fill="#121212"/>
         </svg>
-    </a>
-    <!-- black background roundel -->
-    <svg class="class-name__roundel" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <g fill="none" fill-rule="evenodd"><path d="M21 0C9.402 0 0 9.402 0 21c0 11.597 9.402 21 21 21s21-9.403 21-21C42 9.402 32.598 0 21 0" fill="#121212"/><path d="M24.15 5.269c3.287.423 6.887 2.245 8.296 3.537v5.942h-.743l-7.553-8.82v-.659zM22.57 5.968h-.084c-4.933 0-7.775 6.442-7.63 15.131v.032c-.145 8.69 2.697 15.132 7.63 15.132h.083v.669c-7.422.48-17.463-4.857-17.317-15.8v-.033C5.106 10.157 15.147 4.82 22.569 5.3v.669z" fill="#ffffff"/><path d="M34.72 22.795l-2.384.954v9.837c-1.342 1.143-4.621 2.925-7.901 3.538v-13.59l-2.385-.801v-.603h12.67v.665z" fill="#ffffff"/></g>
-    </svg>  
+
+    <!-- clock -->
+    <div class="countdown">
+        <div class="timer">00:<span id="time">20</span></div>
+    </div>
+
+
+    <!-- roundel -->
+    <svg class="coronavirus__roundel" width="44" height="44" viewBox="0 0 44 44" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M22 0C9.84951 0 0 9.84951 0 22C0 34.1494 9.84951 44 22 44C34.1505 44 44 34.1494 44 22C44 9.84951 34.1505 0 22 0Z"
+            fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M25.2999 5.51999C28.7431 5.96269 32.515 7.87148 33.991 9.22497V15.4504H33.2127L25.2999 6.20998V5.51999Z"
+            fill="#121212" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M23.6438 6.25209H23.5572C18.3884 6.25209 15.4118 13.0008 15.564 22.1043V22.1374C15.4118 31.2409 18.3884 37.9895 23.5572 37.9895H23.6438V38.6906C15.8684 39.1929 5.3494 33.6023 5.50163 22.1374V22.1043C5.3494 10.6404 15.8684 5.04874 23.6438 5.55106V6.25209Z"
+            fill="#121212" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M36.3736 23.8803L33.8752 24.8794V35.1852C32.4696 36.383 29.0345 38.2498 25.5982 38.8913V38.1417V36.7374V24.6542L23.0999 23.8152V23.1837H36.3736V23.8803Z"
+            fill="#121212" />
+    </svg>
+
+
+
+
+
+    <script>
+        var timer;
+        function startTimer(duration, display) {
+            timer = duration;
+            var seconds;
+            setInterval(function () {
+                seconds = parseInt(timer % 60, 10);
+
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = seconds;
+
+                if (--timer < 1) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            timer = 20;
+        }
+
+        window.onload = function () {
+            fiveMinutes = 20,
+                display = document.querySelector('#time');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+
+
 </div>

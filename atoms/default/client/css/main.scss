@@ -12,85 +12,316 @@
 // Default breakpoints from Frontend
 // Use mc() in place of mq() so your thrashers don't get broken
 $mq-breakpoints: (
-    mobile:          320px,
-    mobileMedium:    375px,
-    mobileLandscape: 480px,
-    phablet:         660px,
-    tablet:          740px,
-    desktop:         980px,
-    leftCol:         1140px,
-    wide:            1300px
+  mobile: 320px,
+  mobileMedium: 375px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px
 );
 
-
-// update 'class-name' with yours
-$containerName:class-name;
+// update 'this-is-europe' with yours
+$containerName: coronavirus;
 // colours pulled from shared/css/_palette.sass
-$backgroundColor:$labs-main;
-$textColor: $neutral-7;
-$buttonColor:$neutral-7;
-$buttonHoverColor:$neutral-46;
-
-
+$backgroundColor: #ab0613;
+$textColor: #fff;
+$buttonColor: #ffe500;
+$buttonHoverColor: #f3c100;
 
 // this targets the container your thrasher is put inside on Fronts
 section##{$containerName} {
-    width:100%;
-    position: relative;
-    padding: 0 !important;
+  width: 100%;
+  position: relative;
+  padding: 0 !important;
+  overflow: hidden;
+  background-color: #fff;
+  .fc-container__inner,
+  .fc-slice,
+  .facia-snap {
     overflow: hidden;
-    background-color:#fff;
-    .fc-container__inner,
-    .fc-slice,
-    .facia-snap {
-        overflow: hidden;
-    }
-    .facia-snap {
-        padding: 0;
-    }
+  }
+  .facia-snap {
+    padding: 0;
+  }
 }
 
 .#{$containerName} {
-    width:100%;
-    height:200px;
-    background-color:$backgroundColor;
-    &__headline {
-        color:$textColor;
-        font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
-        font-size: 34px;
-        @include mc ($from: mobileLandscape) {
-            color:$textColor;
-        }
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 380px;
+  background-color: $backgroundColor;
+  @include mc(mobileMedium) {
+    height: 300px;
+  }
+  @include mc(mobileLandscape) {
+    height: 190px;
+  }
+  @include mc(phablet) {
+    height: 133px;
+  }
+  @include mc(tablet) {
+    height: 148px;
+  }
+  @include mc(desktop) {
+    height: 120px;
+  }
+  @include mc(leftCol) {
+    height: 80px;
+  }
+  @include mc(wide) {
+    height: 80px;
+  }
+  &__roundel {
+    position: absolute;
+    right: 20px;
+    top: 6px;
+    @include mc(mobileLandscape) {
+      width: 32px;
+      right: 10px;
     }
-    &__component-button {
-        // mixin takes 3 variables:
-        // background-color, text-color, hover-background-color
-        @include component-button($bgColor: $neutral-7, $color: #fff, $hoverBgColor: $neutral-46);
+    @include mc(phablet) {
+      width: 32px;
+      right: 20px;
     }
-    &__roundel {
-        // mixin makes roundel sit top right of thrasher and move with grid
-        @include roundel-top-right;
+    @include mc(tablet) {
+      width: 36px;
     }
+  }
 }
 
+//---------------------------------------------------------------
+
+.coronavirus h2 {
+  font-family: "Guardian Headline Full", "Guardian Egyptian Web", Georgia, serif;
+  color: #fff;
+}
+
+.coronavirus h3 {
+  font-family: "Guardian Titlepiece", "Guardian Headline Full", "Guardian Egyptian Web", Georgia, serif;
+  color: #fff;
+  @include mc(mobileLandscape) {
+    font-size: 30px;
+    line-height: 100%;
+  }
+  @include mc(phablet) {
+    font-size: 30px;
+    line-height: 100%;
+  }
+  @include mc(tablet) {
+    font-size: 36px;
+    line-height: 100%;
+  }
+  @include mc(desktop) {
+    font-size: 36px;
+    line-height: 80%;
+  }
+  @include mc(leftCol) {
+  }
+  @include mc(wide) {
+  }
+}
+
+.coronavirus h4 {
+  font-family: "Guardian Headline Full", "Guardian Egyptian Web", Georgia, serif;
+  color: #fff;
+  font-weight: 100;
+  line-height: 115%;
+  font-style: italic;
+  @include mc(mobileLandscape) {
+    font-size: 18px;
+  }
+  @include mc(phablet) {
+    font-size: 18px;
+  }
+  @include mc(tablet) {
+    font-size: 22px;
+  }
+  @include mc(desktop) {
+  }
+  @include mc(leftCol) {
+  }
+  @include mc(wide) {
+    padding-top: 4px;
+  }
+}
+
+.arrow {
+  height: 28px;
+  width: auto;
+  position: absolute;
+  bottom: 6px;
+  left: 708px;
+}
+
+.stack-left {
+  // border: 1px solid black;
+  float: left;
+  @include mc(mobileLandscape) {
+    padding: 0px 10px;
+    width: 180px;
+  }
+  @include mc(phablet) {
+    padding: 0px 20px;
+    width: 180px;
+  }
+  @include mc(tablet) {
+    padding: 0px 20px;
+    width: 180px;
+  }
+  @include mc(desktop) {
+    padding: 0px 20px;
+    width: 180px;
+  }
+  @include mc(leftCol) {
+    padding: 0px 20px;
+    width: 140px;
+  }
+  @include mc(wide) {
+    padding: 0px 20px;
+    width: 220px;
+  }
+}
+
+.stack-right {
+  // border: 1px solid black;
+  @include mc(mobileLandscape) {
+    padding: 0px 0 0 10px;
+    width: 400px;
+    clear: both;
+  }
+  @include mc(phablet) {
+    padding: 0px 0 0 20px;
+    width: 400px;
+  }
+  @include mc(tablet) {
+    padding: 0px 0 0 20px;
+    width: 450px;
+  }
+  @include mc(desktop) {
+    padding: 8px 0 0 20px;
+    width: auto;
+  }
+  @include mc(leftCol) {
+    clear: none;
+    float: left;
+    padding: 8px 0 0 0;
+    width: auto;
+  }
+  @include mc(wide) {
+    padding: 8px 0 0 0;
+    width: auto;
+  }
+}
+
+.countdown {
+  position: relative;
+  background-color: #121212;
+  color: #fff;
+  @include mc(mobileLandscape) {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 120px;
+    height: 50px;
+    float: left;
+  }
+  @include mc(phablet) {
+    right: 70px;
+    width: 180px;
+    height: 100%;
+  }
+  @include mc(tablet) {
+    right: 85px;
+    width: 180px;
+    height: 100%;
+  }
+  @include mc(desktop) {
+    width: 180px;
+    height: 80px;
+  }
+  @include mc(leftCol) {
+    float: left;
+    width: 160px;
+    height: 100%;
+  }
+  @include mc(wide) {
+    left: 980px;
+    width: 220px;
+    height: 50px;
+  }
+}
+
+.timer {
+  font-family: 'VT323', monospace;
+  color: #ffe500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include mc(mobileLandscape) {
+    font-size: 50px;
+  }
+  @include mc(phablet) {
+    font-size: 70px;
+  }
+  @include mc(tablet) {
+    font-size: 70px;
+  }
+  @include mc(desktop) {
+  }
+  @include mc(leftCol) {
+  }
+  @include mc(wide) {
+    font-size: 50px;
+  }
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// Android / iOS ------------------------------------------------------------------------------------------------------------------------------------------------
 
 // this removes margins from Android / iOS view
 .interactive-atom {
-    margin:0;
-    overflow: hidden;
+  margin: 0;
+  overflow: hidden;
 }
 
 // iOS and Android specific styles
 .#{$containerName} {
-    .android &,
-    .ios & {
-        overflow:hidden;
-        margin:0;
-        padding:0;
-        &__component-button {
-            span {
-                letter-spacing: unset;
-            }
-        }
+  .android &,
+  .ios & {
+    
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    
+    @include mc(mobileMedium) {
+      height: 600px;
     }
+    @include mc(mobileLandscape) {
+      height: 620px;
+    }
+    @include mc(phablet) {
+      height: 670px;
+    }
+    @include mc(tablet) {
+      height: 660px;
+    }
+    @include mc(desktop) {
+      height: 620px;
+    }
+    @include mc(leftCol) {
+      height: 620px;
+    }
+
+    
+  }
 }
