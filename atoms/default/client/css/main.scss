@@ -25,7 +25,8 @@ $mq-breakpoints: (
 // update 'this-is-europe' with yours
 $containerName: coronavirus;
 // colours pulled from shared/css/_palette.sass
-$backgroundColor: #ab0613;
+// $backgroundColor: #ab0613;
+$backgroundColor: teal;
 $textColor: #fff;
 $buttonColor: #ffe500;
 $buttonHoverColor: #f3c100;
@@ -298,11 +299,11 @@ section##{$containerName} {
 .#{$containerName} {
   .android &,
   .ios & {
-    
+
     overflow: hidden;
     margin: 0;
     padding: 0;
-    
+
     @include mc(mobileMedium) {
       height: 600px;
     }
@@ -322,6 +323,6 @@ section##{$containerName} {
       height: 620px;
     }
 
-    
+
   }
 }
